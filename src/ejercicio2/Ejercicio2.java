@@ -21,7 +21,7 @@ public class Ejercicio2 {
 		
 		/* Bucle For de pedida e insercion */
 		for(int i = 0; i < tabla.length; i++) {
-			
+				
 			System.out.println("Introduce numero decimal: ");
 			aux = sc.nextDouble();
 			
