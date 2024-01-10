@@ -28,7 +28,7 @@ public class Principal {
 
 		/* Declaraciones */
 			/* Cantidad de valores a pedir */
-		int CANT = 4;
+		int CANT = 10;
 		
 			/* Valor total de la suma de los números */
 		int total;
