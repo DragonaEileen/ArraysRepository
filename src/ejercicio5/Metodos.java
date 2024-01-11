@@ -2,6 +2,8 @@ package ejercicio5;
 
 /**
  * Clase que guarda los métodos relativos al ejercicio 5: máximo, mínimo, y total.
+ * 
+ * @author Eileen
  */
 public class Metodos {
 
