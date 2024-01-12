@@ -13,7 +13,7 @@ public class Metodos {
 	 * @param tabla[] Array de numeros a sumar
 	 * @return total Valor total de la suma de los valores del array
 	 */
-	static int sumaTotal(int tabla[]) {
+	public static int sumaTotal(int tabla[]) {
 		
 		/* Declaraciones */
 			/* Por claridad de código declaramos un valor a devolver */
@@ -37,7 +37,7 @@ public class Metodos {
 	 * @param tabla[] Array de numeros enteros que se recibe
 	 * @return min Valor más pequeño entre los valores del array
 	 */
-	static int minimo(int tabla[]) {
+	public static int minimo(int tabla[]) {
 		
 		/* Declaraciones */
 			/* Declaramos un valor a devolver por claridad de código */
@@ -69,7 +69,7 @@ public class Metodos {
 	 * @param tabla[] Array de numeros enteros que se recibe
 	 * @return max Valor más grande entre los valores del array
 	 */
-	static int maximo(int tabla[]) {
+	public static int maximo(int tabla[]) {
 		
 		/* Declaraciones */
 			/* Declaramos un valor a devolver por claridad de código */
