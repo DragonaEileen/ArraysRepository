@@ -55,7 +55,26 @@ public class ArrayRandom {
 				
 			}
 			
-		}
+		}//Fin FOR --> Longitud de Array
+		
+		/* Construimos el array */ 
+		posiciones = new int[longitud];
+		
+		/* Reseteamos la longitud */
+		longitud = 0;
+		
+		/* Recorremos el mismo bucle añadiendo los numeros a la array posiciones */
+		for(int i = 0; i < tabla.length; i++) {
+			
+			if(tabla[i] == num) {
+				
+				posiciones[longitud] = tabla[i];
+				
+				longitud = longitud + 1;
+				
+			}
+			
+		}//Fin FOR --> Longitud de Array
 		
 		/* Return */
 		return posiciones;

@@ -13,11 +13,21 @@ public class Principal {
 
 		/* Declaraciones */
 			/* Array a rellenar con números aleatorios */
-		int tabla[];
+		ArrayRandom tabla1 = new ArrayRandom() ;
 		
 			/* Array que guarda las posiciones en las que se encuentra un número especifico */
 		int posiciones[];
 		
+		/* Algoritmo */
+		/* Rellenamos la array con el metodo fill */
+		tabla1.fill();
+		
+		/* Buscamos las posiciones de un numero especifico, por ejemplo 24 */
+		posiciones = tabla1.busqueda(24);
+		
+		for (int numero: posiciones) {
+			System.out.println(numero);
+		}
 		
 		
 	}//FIN MAIN
