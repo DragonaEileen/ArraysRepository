@@ -1,5 +1,8 @@
 package ejercicio6;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Principal {
 	
 	/* Crea un programa que cree un array de tamaño 1000 y lo rellene con valores enteros 
@@ -9,6 +12,61 @@ public class Principal {
 	public static void main(String[] args) {
 
 		/* Declaraciones */
+			/* Objeto que contiene la tabla */
+		ArrayRandom tabla1 = new ArrayRandom();
+		
+			/* Número a comprobar si existe */
+		int num = -1;
+		
+			/* Booleano que dirá si un número está en la tabla o no */
+		boolean existe;
+		
+			/* Cantidad de veces que existe el número en la tabla */
+		int cantidad;
+		
+		/* Apertura de Scanner */
+		Scanner sc = new Scanner(System.in);
+		
+		/* Recogida de Datos */
+			/* Mediante dotry */
+		do{
+			
+			try{
+				
+				System.out.println("Introduce número a buscar:");
+				num = sc.nextInt();
+				
+			}catch(InputMismatchException e){
+				
+				System.err.println("Wrong Data Type. Try Again.");
+				sc.next();
+				
+			}//Fin Try-Catch
+			
+		}while(num < 0 || num > 99);
+		
+		/* Algoritmo */
+			/* Comprobamos si existe */
+		existe = tabla1.existencia(num);
+		
+		//Respuesta según existe o no
+		if (existe) {
+			
+			System.out.println("El número existe.");
+			
+			//Ahora calculamos cuantas veces existe
+			cantidad = tabla1.cantidad(num);
+			
+			System.out.println("El número es encontrado " + cantidad + " veces.");
+			
+		}else {
+			
+			System.out.println("El número no existe.");
+			
+		}//Fin IF --> Existencia
+		
+		/* Cierre de Scanner */
+		sc.close();
 		
 	}
 
