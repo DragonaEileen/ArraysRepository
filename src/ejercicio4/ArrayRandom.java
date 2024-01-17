@@ -52,6 +52,11 @@ public class ArrayRandom {
 	}//Fin Constructor CON Parametos
 	
 	/* Métodos */
+	/**
+	 * Este método sortea la tabla y la devuelve
+	 * 
+	 * @return tabla Array ordenada.
+	 */
 	public int[] sorting() {
 		
 		//Sorteamos la Tabla
