@@ -34,8 +34,8 @@ public class Principal {
 		Scanner sc = new Scanner(System.in);
 		
 		/* Construimos Arrays */
-		tabla1 = new int[2];
-		tabla2 = new int[2];
+		tabla1 = new int[10];
+		tabla2 = new int[10];
 		
 		/* Algoritmo */
 			/* Recogemos los diez primeros datos */
