@@ -9,6 +9,9 @@ public class Principal {
 		 * Luego a otro método le pasaremos un número a buscar y nos devolverá un array de
 		 * posiciones. */
 	
+	/* Pruebas */
+	/* Funciona */
+	
 	public static void main(String[] args) {
 
 		/* Declaraciones */
@@ -18,17 +21,22 @@ public class Principal {
 			/* Array que guarda las posiciones en las que se encuentra un número especifico */
 		int posiciones[];
 		
+			/* Valor a buscar entre 1 y 10 */
+		int SEARCH = 3;
+		
 		/* Algoritmo */
 		/* Rellenamos la array con el metodo fill */
 		tabla1.fill();
 		
 		/* Buscamos las posiciones de un numero especifico, por ejemplo 24 */
-		posiciones = tabla1.busqueda(24);
+		posiciones = tabla1.busqueda(SEARCH);
+		
+		/* Imprenta de Posiciones */
+		System.out.println("El número " + SEARCH + " se encuentra en las siguientes posiciones: ");
 		
 		for (int numero: posiciones) {
 			System.out.println(numero);
-		}
-		
+		}//Fin FOR-each --> Imprenta
 		
 	}//FIN MAIN
 

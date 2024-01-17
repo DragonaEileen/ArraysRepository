@@ -1,7 +1,5 @@
 package ejercicio8;
 
-import java.util.Random;
-
 /**
  * Esta clase contiene un array la cual podemos rellenar con números aleatorios, y métodos
  * para ello.
@@ -51,6 +49,7 @@ public class ArrayRandom {
 			
 			if(tabla[i] == num) {
 				
+				//Contamos una longitud por numero que coincida
 				longitud = longitud + 1;
 				
 			}
@@ -68,8 +67,10 @@ public class ArrayRandom {
 			
 			if(tabla[i] == num) {
 				
-				posiciones[longitud] = tabla[i];
+				//La posición será igual a i
+				posiciones[longitud] = i;
 				
+				//Vamos a la siguiente posición de la tabla posiciones[]
 				longitud = longitud + 1;
 				
 			}
