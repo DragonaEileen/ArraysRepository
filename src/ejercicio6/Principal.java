@@ -8,6 +8,14 @@ public class Principal {
 	/* Crea un programa que cree un array de tamaño 1000 y lo rellene con valores enteros 
 	 * aleatorios entre 0 y 99 (utiliza Math.random()*100). Luego pedirá por teclado un 
 	 * valor N y se mostrará por pantalla si N existe en el array, además de cuantas veces.  */
+	
+	/* Pruebas */
+	/* Inicio Pruebas:
+	 * 	Entrada: 30	| S. Esperada: Existe, X veces	| S. Obtenida: Existe, 13 veces
+	 * 	Entrada: 200| S. Esperada: Reintroduce		| S. Obtenida: Reintroduce
+	 *  Entrada: a	| S. Esperada: Exception		| S. Obtenida: Exception
+	 * Fin Pruebas
+	 * */
 
 	public static void main(String[] args) {
 
