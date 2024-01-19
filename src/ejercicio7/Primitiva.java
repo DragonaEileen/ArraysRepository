@@ -28,26 +28,15 @@ public class Primitiva {
 		
 	}//Fin Constructor SIN Parametros
 	
-	/**
-	 * Constructor CON parametros de papeleta el cuál rellena la papeleta con el mísmo número.
-	 * 
-	 * @param fullin Valor que tomarán todos los numeros de la papeleta
-	 */
-	public Primitiva(int fullin) {
-		
-		Arrays.fill(papeleta, fullin);
-		
-	}//Fin Constructor CON Parametros
-	
 	/* Getters */
 	/**
 	 * Este método devuelve una String de la papeleta
 	 * 
 	 * @return escrito Cadena de los números de la papeleta
 	 */
-	String getPapeleta() {
+	int[] getPapeleta() {
 		
-		return Arrays.toString(papeleta);
+		return papeleta;
 		
 	}//Fin getPapeleta()
 	
@@ -55,22 +44,44 @@ public class Primitiva {
 	/**
 	 * Este método pide al usuario que rellene manualmente la papeleta.
 	 */
-	void setPapeleta() {
+	void setPapeleta(Scanner sc) {
 		
-		/* Apertura de Scanner */
-		Scanner sc = new Scanner(System.in);
+		/* Declaraciones */
+			/* Booleano para evitar repeticiones */
+		boolean antiRepeat = false;
+		
+			/* Valor a tomar por input */
+		int num = 0;
 		
 		/* Recogida de Datos e Inserción */
 			/* Usamos un bucle For para insertar un número en cada posición de la papeleta */
 		for(int i = 0; i < papeleta.length; i++) {
+			
+			/* Protocolo AntiRepeat + */
 			
 			/* Mediante un dotry nos aseguramos que son datos válidos */
 			do{
 				
 				try{
 					
+					//Set default of AntiRepeat
+					antiRepeat = false;
+					
 					System.out.println("Introduce el número " + (i+1) + ":");
-					papeleta[i] = sc.nextInt();
+					num = sc.nextInt();
+					
+					//Busqueda secuencial para ver si el número existe ya en la papeleta.
+					for(int j = 0; j < papeleta.length; j++) {
+						
+						//Si en algún momento se repite el número, antiRepeat se vuelve true
+						//	y se repite la generación de randy
+						if(papeleta[j] == num) {
+							
+							antiRepeat = true;
+							
+						}//Fin IF --> si el número Existe
+						
+					}//Fin FOR --> Busqueda secuencial
 					
 				}catch(InputMismatchException e){
 					
@@ -79,16 +90,16 @@ public class Primitiva {
 					
 				}//Fin Try-Catch
 				
-			}while(papeleta[i] < 1 || papeleta[i] > 49);
+			}while(num < 1 || num > 49 || antiRepeat);
+			
+			/* Inserción */
+			papeleta[i] = num;
 			
 		}//Fin FOR --> Recogida e Inserción
 		
 		/* Ordenamos la papeleta ordenada*/
 		papeletaOrdenada = Arrays.copyOf(papeleta, 6);
 		Arrays.sort(papeletaOrdenada);
-			
-		/* Cierre de Scanner */
-		sc.close();
 		
 	}//Fin setPapeleta()
 	
@@ -100,11 +111,42 @@ public class Primitiva {
 	 */
 	void aleatoriedad() {
 		
+		/* Declaraciones */
+			/* Booleano para evitar repeticiones con un bucle */
+		boolean antiRepeat;
+		
+			/* Valor donde se guardará un numero random */
+		int randy;
+		
 		//Bucle For para recorrer cada posición de la array
 		for( int i = 0; i < papeleta.length; i++) {
 			
+			//Protocolo AntiRepeat
+			do {
+				
+				//Valor base de antiRepeat es false
+				antiRepeat = false;
+				
+				//Generamos un numero random
+				randy = (int) (Math.random()*49 + 1);
+				
+				//Busqueda secuencial para ver si randy existe ya en la papeleta.
+				for(int j = 0; j < papeleta.length; j++) {
+					
+					//Si en algún momento se repite el número, antiRepeat se vuelve true
+					//	y se repite la generación de randy
+					if(papeleta[j] == randy) {
+						
+						antiRepeat = true;
+						
+					}//If Randy Existe
+					
+				}//Fin FOR --> Busqueda secuencial
+				
+			}while(antiRepeat);
+			
 			//En cada posición insertamos un número random
-			papeleta[i] = (int) (Math.random()*50);
+			papeleta[i] = randy;
 			
 		}//Fin FOR --> Relleno
 		
@@ -130,15 +172,26 @@ public class Primitiva {
 			/* Valor que cuenta las iteraciones */
 		int i = 0;
 		
+			/* Posicion del numero buscado, por claridad de código */
+		int posicion;
+		
 		/* Algoritmo */
+		//Recorremos la array de los seis numeros a comprobar si estan en la papeleta
 		while(i < numeros.length) {
 			
-			if (Arrays.binarySearch(papeleta, numeros[i]) > 0) {
-			aciertos = aciertos + Arrays.binarySearch(papeleta, numeros[i]);
-			}
+			posicion = Arrays.binarySearch(papeletaOrdenada, numeros[i]);
+			
+			//Mediante un binarySearch buscamos cada número en la papeleta ganadora ordenada
+			if (posicion >= 0) {
+					
+				aciertos = aciertos + 1;
+				
+			}//Fin IF --> Si existe
+			
+			i++;
 				
 		}//Fin WHILE --> Comparator
-		
+	
 		/* Return */
 		return aciertos;
 		
