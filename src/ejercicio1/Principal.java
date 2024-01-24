@@ -17,7 +17,9 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-
+		Panel panel = new Panel(6);
+		
+		panel.drawPanel();
 
 	}
 

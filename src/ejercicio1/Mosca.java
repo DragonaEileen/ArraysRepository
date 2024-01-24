@@ -23,6 +23,11 @@ public class Mosca {
 	 */
 	private boolean vida = true;
 	
+	/**
+	 * Cadena que hace de nombre de la mosca
+	 */
+	String name;
+	
 	/* Constructors */
 	/**
 	 * Constructor SIN Parametros
@@ -33,14 +38,17 @@ public class Mosca {
 		
 		movimiento = 1;
 		
+		name = "Defaulty";
+		
 	}//Fin Constructor SIN
 	
 	/**
 	 * Constructor CON Parametros
 	 * 
 	 * @param difficulty Valor de dificultad del Objeto Panel
+	 * @param name Cadena que indica el nombre de la mosca
 	 */
-	public Mosca(int difficulty) {
+	public Mosca(int difficulty, String name) {
 		
 		switch (difficulty) {
 		case 0: 
@@ -57,23 +65,17 @@ public class Mosca {
 			
 		case 2:
 			
-			hitPoints = 1;
+			hitPoints = 2;
 			movimiento = 1;
 			break;
 			
 		case 3:
 			
-			hitPoints = 2;
-			movimiento = 1;
-			break;
-			
-		case 4:
-			
 			hitPoints = 3;
 			movimiento = 3;
 			break;
 			
-		case 5:
+		case 4:
 			
 			hitPoints = 5;
 			movimiento = (int) (Math.random()*10);
@@ -86,6 +88,9 @@ public class Mosca {
 			break;
 			
 		}//Fin Switch --> Difficulty Application
+		
+		//Aplicamos el nombre
+		this.name = name;
 		
 	}//Fin Constructor CON
 	
