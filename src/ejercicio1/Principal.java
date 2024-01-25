@@ -17,9 +17,9 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		Panel panel = new Panel(6);
+		Panel panel = new Panel(3);
 		
-		panel.drawPanel();
+		panel.initiate();
 
 	}
 

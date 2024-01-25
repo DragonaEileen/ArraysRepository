@@ -1,5 +1,6 @@
 package ejercicio1;
 
+import java.util.Arrays;
 
 /**
  * Esta clase contendrá un atributo Panel (el cuál será una array) y un atributo posición,
@@ -15,6 +16,11 @@ public class Panel {
 	 * Array de posiciones donde está la mosca
 	 */
 	Object panel[];
+	
+	/**
+	 * Array que contiene las direcciones de las Moscas
+	 */
+	Mosca moscas[];
 	
 	/**
 	 * Valor que indica la dificultad del panel
@@ -37,7 +43,7 @@ public class Panel {
 	 */
 	public Panel() {
 		
-		panel = new Object[11];
+		difficulty = 2;
 		
 	}//Fin Constructor SIN Parametros
 	
@@ -48,8 +54,16 @@ public class Panel {
 	 */
 	public Panel(int difficulty) {
 		
-		//We need the difficulty saved to calculate the number and HP of the Flies
+		//We need the difficulty saved to calculate the number and HP of the Flies and size of panel
 		this.difficulty = difficulty;
+		
+	}//Fin Constructor CON Parametros
+	
+	/* Métodos */
+	/**
+	 * Method used in order to applicate the difficultty
+	 */
+	void applicateDifficulty() {
 		
 		//Difficulty Application
 		switch (difficulty) {
@@ -172,9 +186,11 @@ public class Panel {
 			
 		}//	Fin Switch --> Difficulty Application
 		
-	}//Fin Constructor CON Parametros
+		//Filling Panel
+		Arrays.fill(panel, 0);
+		
+	}//Fin applicateDifficulty()
 	
-	/* Métodos */
 	/**
 	 * El siguiente método genera las moscas 
 	 * 
@@ -192,20 +208,130 @@ public class Panel {
 	/**
 	 * Method to Place Flies
 	 */
-	void placeFlies() {
+	void placeInArrayFlies() {
 		
-		switch (difficulty) {
-		case 0: 
+		/* Declaraciones */
+			/* Nombre de la mosca */
+		String name;
+		
+		/* Construimos Array Moscas */
+		moscas = new Mosca[numFlies];
+		
+		//Bucle para introducir las moscas en su array
+		for(int i = 0; i < numFlies; i++) {
 			
+			name = "mosca" + (i+1);
 			
+			moscas[i] = generateFly(difficultyFlies[i], name);
 			
-		default:
-			
-			
-			
-		}
+		}//Fin FOR --> Place Flies In Array
 		
 	}//Fin placeFlies()
+	
+	/**
+	 * Método para introducir las moscas en el panel
+	 */
+	void placeFliesInPanel() {
+		
+		/* Declaraciones */
+			/* Valor de la posición */
+		int randy = -1;
+		
+			/* Booleano para detener la seleccion random de posicion */
+		boolean flag = true;
+		
+		//Bucle para introducir las moscas en el panel
+		for(int i = 0; i < moscas.length; i++) {
+			
+			//Validación de la posición para no pisar moscas
+			while(flag) {
+				
+				//Generamos una posición random
+				randy = (int) (Math.random()*panel.length);
+				
+				//Comprobamos que en esa posición no existe ya una mosca
+				flag = isThereAFlyHere(randy); 
+			
+			}//Fin WHILE --> Selección random de posición
+			
+			/* Catching Weird Exceptions */
+			try {
+				
+				panel[randy] = moscas[i];
+				
+			}catch(IndexOutOfBoundsException e) {
+				
+				System.err.println("FATAL ERROR. TERMINATING PROGRAM.");
+				
+			}//Fin Catching Exceptions
+				
+		}//Fin FOR --> Place Flies in Panel
+		
+	}//Fin placeFliesInPanel()
+	
+	/* TODO Ask Elena about NullPointerException: continue; */
+	/**
+	 * Método para ver si una Mosca existe en una determinada posición
+	 * 
+	 * @param pos Valor de la posición a comprobar
+	 * @return flag Valor que indica si existe una mosca en la posición dada o no
+	 */
+	boolean isThereAFlyHere(int pos) {
+		
+		/* Declaraciones */
+			/* Booleano que indica si en verdad existe una mosca en randy */
+		boolean flag = false;
+		
+		for(int j = 0; j < moscas.length; j++) {
+			
+//			try {
+				
+				if(panel[pos].equals(moscas[j])) {
+					
+					flag = true;
+					
+				}//Fin IF --> Mosca Exists in random position
+//				
+//			}catch(NullPointerException e) {
+//				
+//				continue;
+//				
+//			}//Fin Catching NullPointerException
+			
+		}//Fin FOR --> Comparing with other Moscas
+		
+		/* Return */
+		return flag;
+		
+	}//Fin isThereAFlyHere()
+	
+	/**
+	 * Método para comprobar si hay una mosca adyacente
+	 * 
+	 * @param pos Valor de la posición que hay que comprobar los adyacentes
+	 * @return flag Booleano que indica si hay una mosca en una posición adyacente
+	 */
+	boolean isThereAFlyNear(int pos) {
+		
+		/* Declaraciones */
+			/* Booleano a devolver */
+		boolean flag = false;
+		
+		//Recorremos las moscas
+		for(int j = 0; j < moscas.length; j++) {
+			
+			if(panel[pos-1].equals(moscas[j]) || panel[pos+1].equals(moscas[j])) {
+				
+				flag = true;
+				
+			}//Fin IF --> Mosca Exists in random position
+			
+		}//Fin FOR --> Checking Moscas
+		
+		/* Return */
+		return flag;
+		
+	}//Fin isThereAFlyNear()
 	
 	/* Metodos de Dibujo */
 	/**
@@ -228,8 +354,59 @@ public class Panel {
 	 */
 	void drawMoscas() {
 		
-
+		//Bucle para recorrer todas las moscas
+		for(int i = 0; i < moscas.length; i++) {
+			
+			System.out.println(moscas[i].name + ": " + moscas[i].getHP());
+			
+		}//Fin FOR --> Bucle Moscas
 		
 	}//Fin drawMoscas()
+	
+	/* Generación de Juego */
+	/**
+	 * Este método aplica todos los métodos necesarios para iniciar el juego
+	 */
+	void initiate() {
+		
+		//Primero aplicamos la Dificultad
+		applicateDifficulty();
+		
+		//Segundo generamos las moscas
+		placeInArrayFlies();
+		
+		//Tercero situamos las moscas en el panel
+		placeFliesInPanel();
+		
+		
+		//Dibujamos el panel y dibujamos las moscas
+		drawPanel();
+		drawMoscas();
+		
+	}//Fin initiate()
+	
+	/**
+	 * Método para golpear una mosca
+	 * 
+	 * @param pos Valor de posición ehn la que se quiere golpear
+	 */
+	void popPop(int pos) {
+		
+		//Comprobamos que en la posición hay una mosca
+		if(isThereAFlyHere(pos)) {
+			
+			((Mosca) panel[pos]).loseHP();
+			
+		}else{
+			
+			if(isThereAFlyNear(pos)) {
+				
+				//moveMosca
+				
+			}//Fin IF --> Is There a Fly Near
+			
+		}//Fin IF --> Is There a Fly Here
+		
+	}//Fin popPop()
 	
 }//FIN PANEL
