@@ -311,7 +311,7 @@ public class Panel {
 		//Recorremos las moscas
 		for(int j = 0; j < moscas.length; j++) {
 			
-			if(panel[pos-1].equals(moscas[j]) || panel[pos+1].equals(moscas[j])) {
+			if((pos - 1 >= 0 && panel[pos-1].equals(moscas[j])) || (pos+1 < panel.length && panel[pos+1].equals(moscas[j]))) {
 				
 				flag = true;
 				
@@ -369,11 +369,6 @@ public class Panel {
 		//Tercero situamos las moscas en el panel
 		placeFliesInPanel();
 		
-		
-		//Dibujamos el panel y dibujamos las moscas
-		drawPanel();
-		drawMoscas();
-		
 	}//Fin initiate()
 	
 	/**
@@ -414,7 +409,15 @@ public class Panel {
 			//Comprobamos si hay una mosca adyacente para que se mueva
 			if(isThereAFlyNear(pos)) {
 				
-				moveMosca(((Mosca) panel[pos]), pos);
+				if(isThereAFlyHere(pos+1)) {
+				
+					moveMosca(((Mosca) panel[pos+1]), pos+1);
+					
+				}else{
+					
+					moveMosca(((Mosca) panel[pos-1]), pos-1);
+					
+				}//Fin IF --> Mosca Here?
 				
 			}//Fin IF --> Is There a Fly Near
 			
@@ -429,6 +432,7 @@ public class Panel {
 	 * Este método mueve las moscas
 	 * 
 	 * @param mosca Objeto Mosca a mover
+	 * @param pos
 	 */
 	void moveMosca(Mosca mosca, int pos) {
 		

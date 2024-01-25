@@ -86,8 +86,15 @@ public class Principal {
 					
 					try{
 						
+						//Dibujamos el panel y dibujamos las moscas
+						
+						System.out.println("");
+						
+						juego.drawPanel();
+						juego.drawMoscas();
+						
 						//If si el numero introducido se va de madre
-						if(posHit < 1 || posHit >= juego.panel.length) {
+						if(posHit < 1 || posHit > juego.panel.length) {
 							
 							System.err.println("Casilla no valida, introduce una casilla.");
 							
@@ -103,10 +110,10 @@ public class Principal {
 						
 					}//Fin Try-Catch
 					
-				}while(posHit < 1 || posHit >= juego.panel.length);
+				}while(posHit < 1 || posHit > juego.panel.length);
 				
 				/* Golpe */
-				if(juego.popPop(posHit)) {
+				if(juego.popPop(posHit-1)) {
 					
 					System.out.println("Has golpeado una mosca");
 					
