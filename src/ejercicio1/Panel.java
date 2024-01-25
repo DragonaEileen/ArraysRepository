@@ -269,7 +269,6 @@ public class Panel {
 		
 	}//Fin placeFliesInPanel()
 	
-	/* TODO Ask Elena about NullPointerException: continue; */
 	/**
 	 * Método para ver si una Mosca existe en una determinada posición
 	 * 
@@ -381,16 +380,38 @@ public class Panel {
 	 * Método para golpear una mosca
 	 * 
 	 * @param pos Valor de posición ehn la que se quiere golpear
+	 * @return res Booleano que indica si se ha golpeado alguna mosca
 	 */
-	void popPop(int pos) {
+	boolean popPop(int pos) {
+		
+		/* Declaraciones */
+			/* Booleano que indica que se ha golpeado una mosca */
+		boolean res = false;
 		
 		//Comprobamos que en la posición hay una mosca
 		if(isThereAFlyHere(pos)) {
 			
+			//La mosca golpeada pierde HP
 			((Mosca) panel[pos]).loseHP();
+			
+			//Devolvemos un true para demostrar que la mosca ha sido golpeada
+			res = true;
+			
+			//Comprobamos si la Mosca ha muerto
+			if(!((Mosca) panel[pos]).getVida()) {
+				
+				//Si ha muerto la deleteamos
+				/* NOTA: Los objetos no se deletean, simplemente 
+				 * se deja de apuntar a su espacio de memoria y ya 
+				 * se encarga de borrarlos el recolector de basura */
+				deleteFly();
+				panel[pos] = 0;
+				
+			}//Fin IF --> Delete Mosca
 			
 		}else{
 			
+			//Comprobamos si hay una mosca adyacente para que se mueva
 			if(isThereAFlyNear(pos)) {
 				
 				moveMosca(((Mosca) panel[pos]), pos);
@@ -398,6 +419,9 @@ public class Panel {
 			}//Fin IF --> Is There a Fly Near
 			
 		}//Fin IF --> Is There a Fly Here
+		
+		/* Return */
+		return res;
 		
 	}//Fin popPop()
 	
@@ -493,5 +517,58 @@ public class Panel {
 		}//Fin IF --> Tirada Moneda
 		
 	}//Fin moveMosca()
+	
+	/**
+	 * Método para comprobar si quedan moscas
+	 */
+	void deleteFly() {
+
+		/* Declaraciones */
+			/* Creamos una array nueva donde guardaremos la copia reducida */
+		Mosca auxMoscas[] = new Mosca[moscas.length-1] ;
+		
+			/* Creamos un contador de posiciones de la nueva array */
+		int j = 0;
+		
+		for(int i = 0; i < moscas.length; i++) {
+			
+			if(moscas[i].getVida()) {
+				
+				auxMoscas[j] = moscas[i];
+				
+				//Siguiente posición de la aux
+				j = j+1;
+				
+			}//If selección de las vivas
+			
+		}//Fin FOR --> Recorrer moscas
+		
+		//Apuntamos el array atributo moscas a la nueva array reducida
+		moscas = auxMoscas;
+		
+	}//Fin deleteFly()
+	
+	/**
+	 * Método que comprueba si quedan moscas, y por tanto si se ha ganado
+	 * 
+	 * @return res Booleano que indica si se ha ganado o no
+	 */
+	boolean winWin() {
+		
+		/* Declaraciones */
+			/* Booleano a devolver por claridad de código */
+		boolean res = false;
+		
+		/* Comprobamos que no haya moscas */
+		if(moscas.length == 0) {
+			
+			res = true;
+			
+		}//Fin IF --> Comprobación
+		
+		/* Return */
+		return res;
+		
+	}//Fin winWin()
 	
 }//FIN PANEL

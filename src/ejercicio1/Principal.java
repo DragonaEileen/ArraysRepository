@@ -22,13 +22,16 @@ public class Principal {
 		
 		/* Declaraciones */
 			/* Declaramos el panel de juego */
-		Panel panel;
+		Panel juego;
 		
 			/* Valor que indica la dificultad */
 		int difficulty = 0;
 		
 			/* Valor para parar el juego */
 		boolean flag = true;
+		
+			/* Valor de posición de la casilla que se quiere golpear */
+		int posHit = 1;
 		
 		/* Apertura de Scanner */
 		Scanner sc = new Scanner(System.in);
@@ -48,7 +51,7 @@ public class Principal {
 					//If si se introduce un valor no válido
 					if (difficulty > 6 || difficulty < 0) {
 						
-						System.err.println("Dato no válido, introduce un número del 0 al 5.");
+						System.err.println("Numero no válido, introduce un número del 0 al 5.");
 						
 					}//Mensaje de error
 					
@@ -67,15 +70,60 @@ public class Principal {
 					
 				}//Fin Try-Catch
 				
-			}while(difficulty != 6 || difficulty < 0);
+			}while(difficulty > 6 || difficulty < 0);
 			
 			/* Con la dificultad construimos el Juego */
-			panel = new Panel(difficulty);
+			juego = new Panel(difficulty);
 			
 			/* Iniciamos el Juego */
 			System.out.println("Let's Begin!");
-			panel.initiate();
+			juego.initiate();
 			
+			/* BUCLE DE TURNOS */
+			do {
+					/*DO-TRY para asegurarnos de que se introducen valores válidos*/
+				do{
+					
+					try{
+						
+						//If si el numero introducido se va de madre
+						if(posHit < 1 || posHit >= juego.panel.length) {
+							
+							System.err.println("Casilla no valida, introduce una casilla.");
+							
+						}//Fin IF numero no valido
+						
+						System.out.println("¿Qué casilla quieres golpear?");
+						posHit = sc.nextInt();
+						
+					}catch(InputMismatchException e){
+						
+						System.err.println("Dato no válido, introduce una casilla");
+						sc.next();
+						
+					}//Fin Try-Catch
+					
+				}while(posHit < 1 || posHit >= juego.panel.length);
+				
+				/* Golpe */
+				if(juego.popPop(posHit)) {
+					
+					System.out.println("Has golpeado una mosca");
+					
+				}else {
+					
+					System.out.println("No has golpeado nada");
+					
+				}//Fin IF --> Resultado del Golpe
+			
+			}while(!juego.winWin()); //TODO Aqui resultado de la función winWin()
+			
+			/* Mensaje de Ganador */
+			if(juego.winWin()) {
+				
+				System.out.println("Has ganado!!");
+				
+			}
 			
 			/* Fin del Juego */
 			System.out.println("¿Quieres volver a jugar?");
@@ -85,7 +133,10 @@ public class Principal {
 		
 		/* Despedida */
 		System.out.println("¡Gracias por Jugar!");
-
+		
+		/* Cierre de Scanner */
+		sc.close();
+		
 	}//FIN MAIN
 
 }
