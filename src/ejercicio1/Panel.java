@@ -283,20 +283,12 @@ public class Panel {
 		boolean flag = false;
 		
 		for(int j = 0; j < moscas.length; j++) {
-			
-//			try {
 				
 				if(panel[pos].equals(moscas[j])) {
 					
 					flag = true;
 					
 				}//Fin IF --> Mosca Exists in random position
-//				
-//			}catch(NullPointerException e) {
-//				
-//				continue;
-//				
-//			}//Fin Catching NullPointerException
 			
 		}//Fin FOR --> Comparing with other Moscas
 		
@@ -401,12 +393,105 @@ public class Panel {
 			
 			if(isThereAFlyNear(pos)) {
 				
-				//moveMosca
+				moveMosca(((Mosca) panel[pos]), pos);
 				
 			}//Fin IF --> Is There a Fly Near
 			
 		}//Fin IF --> Is There a Fly Here
 		
 	}//Fin popPop()
+	
+	/**
+	 * Este método mueve las moscas
+	 * 
+	 * @param mosca Objeto Mosca a mover
+	 */
+	void moveMosca(Mosca mosca, int pos) {
+		
+		/* Declaraciones */
+			/* Moneda a tirar para ver si sale cara o cruz */
+		int moneda = 0;
+		
+			/* Valor que guardará la posición resultante de lo que 
+			 * se salga la mosca y vuelva en la otra direccion */
+		int seSale = 0;
+		
+			/* Valor que guarda la suma de la posición más el movimiento */
+		int newPos = 0;
+		
+		//Limpiamos la posición anterior de la mosca
+		panel[pos] = 0;
+		
+		//Tiramos la moneda para ver si va a derecha o izquierda
+		moneda = (int) (Math.random()*2 + 1);
+		
+		//If dependiente de la moneda
+		if(moneda == 1) {
+			
+			//If para ver si se sale del panel
+			if(pos+mosca.getMovement() < panel.length) {
+				
+				//Nueva Posición
+				newPos = pos + mosca.getMovement();
+				
+				//Comprobamos que no haya moscas ya
+				while(isThereAFlyHere(newPos)) {
+					
+					newPos = newPos + 1;
+					
+				}//Fin WHILE --> Comprobar que no se pisen las moscas
+				
+				panel[newPos] = mosca;
+				
+			}else{
+				
+				seSale = panel.length-1 - (mosca.getMovement() - (panel.length-1 - pos));					
+			
+				while(isThereAFlyHere(seSale)) {
+					
+					seSale = seSale - 1;
+					
+				}//Fin While --> Comnprobar si hay moscas
+				
+				//Asignar Posición
+				panel[seSale] = mosca;
+			
+			}//Fin IF --> Se sale del panel
+			
+		}else {
+			
+			//If para ver si se sale del panel
+			if(pos-mosca.getMovement() > 0) {
+				
+				//Nueva Posición
+				newPos = pos - mosca.getMovement();
+				
+				//Comprobamos que no haya moscas ya
+				while(isThereAFlyHere(newPos)) {
+					
+					newPos = newPos - 1;
+					
+				}//Fin WHILE --> Comprobar que no se pisen las moscas
+				
+				panel[newPos] = mosca;
+				
+			}else{
+				
+				seSale = -(pos - mosca.getMovement());
+				
+				while(isThereAFlyHere(seSale)) {
+					
+					seSale = seSale + 1;
+					
+				}//Fin While --> Comnprobar si hay moscas
+				
+				//Asignar Posición
+				panel[seSale] = mosca;
+					
+			}//Fin IF --> Se sale del panel
+			
+		}//Fin IF --> Tirada Moneda
+		
+	}//Fin moveMosca()
 	
 }//FIN PANEL
