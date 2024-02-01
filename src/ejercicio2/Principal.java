@@ -25,7 +25,6 @@ public class Principal {
 		Parejas juego = new Parejas(4);
 		
 		juego.iniciar();
-		juego.generarNumeros();
 		
 		System.out.println(Arrays.toString(juego.panelOrdenado));
 		
