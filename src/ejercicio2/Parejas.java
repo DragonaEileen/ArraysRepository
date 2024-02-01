@@ -53,6 +53,10 @@ public class Parejas {
 	}//Fin generarNumeros()
 	
 	/**
+	 * Este método desordena los números del panel Ordenado en el desordenado
+	 */
+	
+	/**
 	 * Este método inicia el juego con los siguientes pasos: construye los arrays,
 	 * genera las parejas de números
 	 */
