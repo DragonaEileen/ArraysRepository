@@ -130,7 +130,7 @@ public class Principal {
 				
 				System.out.println("Has ganado!!");
 				
-			}
+			}//If Mensaje Ganador
 			
 			/* Fin del Juego */
 			System.out.println("¿Quieres volver a jugar?");
