@@ -22,12 +22,9 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		Parejas juego = new Parejas(4);
+		Parejas juego = new Parejas(5);
 		
 		juego.iniciar();
-		
-		System.out.println(Arrays.toString(juego.panelOrdenado));
-		
 		
 	}
 

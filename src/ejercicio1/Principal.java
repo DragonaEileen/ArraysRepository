@@ -133,7 +133,7 @@ public class Principal {
 			}//If Mensaje Ganador
 			
 			/* Fin del Juego */
-			System.out.println("¿Quieres volver a jugar?");
+			System.out.println("¿Quieres volver a jugar?(true or false)");
 			flag = sc.nextBoolean();
 			
 		}while(flag);

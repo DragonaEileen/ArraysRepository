@@ -255,15 +255,8 @@ public class Panel {
 			}//Fin WHILE --> Selección random de posición
 			
 			/* Catching Weird Exceptions */
-			try {
 				
 				panel[randy] = moscas[i];
-				
-			}catch(IndexOutOfBoundsException e) {
-				
-				System.err.println("FATAL ERROR. TERMINATING PROGRAM.");
-				
-			}//Fin Catching Exceptions
 				
 		}//Fin FOR --> Place Flies in Panel
 		
