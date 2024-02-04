@@ -78,6 +78,9 @@ public class Principal {
 			
 		}//Fin FOR --> Recorre Alumnos
 		
+		/* Cierre de Scanner */
+		sc.close();
+		
 	}
 
 }
