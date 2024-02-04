@@ -61,4 +61,53 @@ public class MetodosComunes {
 		
 	}//Fin randomFill2D()
 	
+	/**
+	 * Método que dada una matriz devuelve el elemento ínimo y el máximo en una array de dos posiciones
+	 * 
+	 * @param tabla Array bidimensional en la que se buscará el número mínimo y el máximo
+	 * @return minMax Array de dos posiciones: Posicion 0 el mínimo y Posición 1 el máximo
+	 */
+	public static int[] minMax(int tabla[][]){
+		
+		/* Declaraciones */
+			/* Array quye contiene el minimo y el máximo */
+		int minMax[] = new int[2];
+		
+			/* Valor mínimo */
+		int min = tabla[0][0];
+		
+			/* Valor máximo */
+		int max = tabla[0][0];
+		
+		/* Busqueda secuencial */
+		//Bucle FOR para recorrer el Eje Y
+		for(int y = 0; y < tabla.length; y++) {
+			
+			//Bucle FOR para recorrer el Eje X
+			for(int x = 0; x < tabla[y].length; x++) {
+				
+				//Comprobación de mayor o menor
+				if(tabla[y][x] < min) {
+					
+					min = tabla[y][x];
+					
+				}else if(tabla[y][x] > max) {
+					
+					max = tabla[y][x];
+					
+				}//Fin IF --> Comprobación
+				
+			}//Fin FOR --> Eje X
+			
+		}//Fin FOR --> Eje Y
+		
+		//Asignación
+		minMax[0] = min;
+		minMax[1] = max;
+		
+		/* Return */
+		return minMax;
+		
+	}//Fin minMax()
+	
 }
