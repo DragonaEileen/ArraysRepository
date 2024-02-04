@@ -38,11 +38,11 @@ public class Principal {
 				
 				if(tabla[y][x] != null) {
 				
-					System.out.print("|" + tabla[y][x] + "|");
+					System.out.print("|\t" + tabla[y][x] + "\t|");
 				
 				}else {
 					
-					System.out.print("| |");
+					System.out.print("|\t\t|");
 					
 				}//Fin IF --> avoid nulls
 				
