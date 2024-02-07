@@ -110,4 +110,34 @@ public class MetodosComunes {
 		
 	}//Fin minMax()
 	
+	/**
+	 * Método que rellena una array bidimensional de uno en uno
+	 * 
+	 * @param tabla Array bidimensional a rellenar
+	 */
+	public static void contarRellenar(int tabla[][]) {
+		
+		/* Declaraciones */
+			/* Contador que irá contando por de uno e uno por elemento */
+		int cont = 1;
+		
+		/* Recorremos la Array asignando cont a sus casillas */
+		//Bucle FOR para el Eje Y
+		for(int y = 0; y < tabla.length; y++) {
+			
+			//Bucle FOR para el eje X
+			for(int x = 0; x < tabla[y].length; x++) {
+				
+				//Asignamos
+				tabla[y][x] = cont;
+				
+				//Sumamos uno al contador
+				cont = cont + 1;
+				
+			}//Fin FOR --> Eje X
+			
+		}//Fin FOR --> Eje Y
+		
+	}//Fin contarRellenar
+	
 }
