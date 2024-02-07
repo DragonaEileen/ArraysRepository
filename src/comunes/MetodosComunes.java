@@ -173,4 +173,19 @@ public class MetodosComunes {
 		
 	}//Fin fillSymmetry()
 	
+	/**
+	 * Método que rellena una matriz de manera mágica
+	 * 
+	 * @param tabla Array bidimensional a rellenar de determinada manera
+	 */
+	public static void fillWithMagic(int tabla[][]) {
+		
+		/* Declaraciones */
+			/* Cantidad de numeros eligibles */
+		int maxNum = tabla.length * tabla[0].length;
+		
+			/*  */
+		
+	}//Fin fillWithMagic
+	
 }
