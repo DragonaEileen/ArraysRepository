@@ -140,4 +140,37 @@ public class MetodosComunes {
 		
 	}//Fin contarRellenar
 	
+	/**
+	 * Método para rellenar una tabla de manera simétrica
+	 * 
+	 * @param tabla Array bidimensional a rellenar de manera simetrica
+	 * @param min Valor mínimo del array
+	 * @param max Valor máximo del array
+	 */
+	public static void fillSymmetry(int tabla[][], int min, int max) {
+		
+		//Recorremos el Eje Y
+		for(int y = 0; y < tabla.length; y++) {
+			
+			//Recorremops el Eje X, pero parandonos a la diagonal
+			for(int x = 0; x < tabla[y].length - (tabla.length-1-y); x++)
+			
+				//Rellenamos
+				tabla[y][x] = (int) (Math.random()*(max-min) + min);
+			
+		}//Fin FOR --> Eje Y
+		
+		//Recorremos el Eje Y
+		for(int y = 0; y < tabla.length; y++) {
+			
+			//Recorremops el Eje X, pero parandonos a la diagonal
+			for(int x = y+1; x < tabla[y].length; x++)
+			
+				//Rellenamos
+				tabla[y][x] = tabla[x][y];
+			
+		}//Fin FOR --> Eje Y
+		
+	}//Fin fillSymmetry()
+	
 }
