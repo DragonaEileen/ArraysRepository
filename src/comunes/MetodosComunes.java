@@ -188,4 +188,11 @@ public class MetodosComunes {
 		
 	}//Fin fillWithMagic
 	
+	/**
+	 * Método hermano de fillWithMagic, para comprobar que un número no se repite
+	 * 
+	 * @param tabla Array Bidimensional a buscar el número
+	 */
+	
+	
 }
