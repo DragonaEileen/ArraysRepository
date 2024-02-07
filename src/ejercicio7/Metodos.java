@@ -17,17 +17,23 @@ public class Metodos {
 		
 		/* Declaraciones */
 			/* Tabla auxiliar a devolver */
-		int transpoTabla[][];
-			
-			/* Contador auxiliar de filas */
-		int aux = 0;
+			/* La longitud de la array será igual a 
+			 * la longitud de las filas anteriores */
+		int transpoTabla[][] = new int[tabla[0].length][tabla.length];
 		
 		/* Recorremos la Tabla */
-		while(aux < tabla[0].length) {
+		//Recorremos el Eje Y
+		for(int y = 0; y < transpoTabla.length; y++) {
 			
-			for(int )
+			//Recorremos el Eje X
+			for(int x = 0; x < transpoTabla[0].length; x++) {
+				
+				//Intercambiamos las filas y las columnas
+				transpoTabla[y][x] = tabla[x][y];
+				
+			}//Fin FOR --> Eje X
 			
-		}//Fin whiley
+		}//Fin FOR --> Eje Y 
 		
 		/* Return */
 		return transpoTabla;

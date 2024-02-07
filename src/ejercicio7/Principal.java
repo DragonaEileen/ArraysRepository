@@ -16,11 +16,17 @@ public class Principal {
 			/* Array Bidimensional a transposicionar */
 		int tabla[][] = new int[EJE_Y][EJE_X];
 		
+			/* Array Bidimensional que contendrá la tabla Transpocicionada */
+		int transpoTabla[][];
+		
 		/* Rellenamos la tabla */
 		comunes.MetodosComunes.contarRellenar(tabla);
 		
 		/* Transposicionamos la Tabla */
+		transpoTabla = Metodos.transpo(tabla);
 		
+		/* Mostramos la Tabla */
+		comunes.MetodosComunes.mostrar2D(transpoTabla);
 		
 	}
 
