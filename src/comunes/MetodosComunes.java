@@ -171,28 +171,6 @@ public class MetodosComunes {
 			
 		}//Fin FOR --> Eje Y
 		
-	}//Fin fillSymmetry()
-	
-	/**
-	 * Método que rellena una matriz de manera mágica
-	 * 
-	 * @param tabla Array bidimensional a rellenar de determinada manera
-	 */
-	public static void fillWithMagic(int tabla[][]) {
-		
-		/* Declaraciones */
-			/* Cantidad de numeros eligibles */
-		int maxNum = tabla.length * tabla[0].length;
-		
-			/*  */
-		
-	}//Fin fillWithMagic
-	
-	/**
-	 * Método hermano de fillWithMagic, para comprobar que un número no se repite
-	 * 
-	 * @param tabla Array Bidimensional a buscar el número
-	 */
-	
+	}//Fin fillSymmetry()	
 	
 }
