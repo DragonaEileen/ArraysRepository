@@ -141,4 +141,29 @@ public class Metodos {
 		
 	}//Fin randomString()
 	
+	/**
+	 * Método función del ejercicio 3, que devuelve cuantos espacios en blanco tiene una frase.
+	 * 
+	 * @param cadena Frase a contar los espacios
+	 * @param character Carácter a buscar
+	 * @return numSpaces Cantidad del caracter en la frase dada
+	 */
+	public static int countCharacter(String cadena, char character) {
+		
+		/* Declaraciones */
+			/* Por claridad de codigo, un contador de carácteres */
+		int cont = 0;
+		
+		/* Contador */
+		for(int i = 0; i < cadena.length(); i++) {
+			
+			if(cadena.charAt(i) ==  character) {cont = cont + 1;}
+			
+		}//Fin FOR --> contador
+		
+		/* Return */
+		return cont;
+		
+	}//Fin countCharacter
+	
 }
