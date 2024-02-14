@@ -30,6 +30,10 @@ public class Principal {
 			
 		}//Fin IF --> Comparator
 		
+		/* Imprimimos por pantalla */
+		System.out.println("Cadena 1: " + cadena1);
+		System.out.println("Cadena 2: " + cadena2);
+		
 	}//FIN MAIN
 
 }
