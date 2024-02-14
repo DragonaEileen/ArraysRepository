@@ -166,4 +166,29 @@ public class Metodos {
 		
 	}//Fin countCharacter
 	
+	/**
+	 * Método función que al pasarle una cadena la devuelva invertida
+	 * 
+	 * @param cadena Cadena a invertir
+	 * @return invCadena Cadena invertida
+	 */
+	public static String invert(String cadena) {
+		
+		/* Declaraciones */
+			/* PCC (Per Code Clarity): declaramos una String para devolver */
+		String invCadena = "";
+		
+		/* Operacion */
+		//Bucle For para recorrer la cadena
+		for(int i = cadena.length() - 1; i >= 0; i--) {
+			
+			invCadena = invCadena + cadena.charAt(i);
+			
+		}//Fin FOR --> Reversing
+		
+		/* Return */
+		return invCadena;
+		
+	}//Fin invert()
+	
 }
