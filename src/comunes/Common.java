@@ -236,7 +236,7 @@ public class Common {
 		/* Comprobamos si la palabra existe en la cadena */
 		if(cadena.contains(subCadena)) {
 			
-			//Bucle For para recorrer el array
+			//Bucle For para recorrer la cadena
 			for(int i = 0; i < cadena.length(); i++) {
 				
 				//Reset Check
