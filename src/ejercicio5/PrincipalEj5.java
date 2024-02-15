@@ -12,7 +12,7 @@ public class PrincipalEj5 {
 		String invCadena;
 		
 		/* Operacion */
-		invCadena = comunes.Metodos.invert(CADENA);
+		invCadena = comunes.Common.invert(CADENA);
 		
 		/* Imprenta */
 		System.out.println(CADENA);

@@ -12,7 +12,7 @@ public class Principal {
 		final char CHARACTER = ' ';
 		
 		/* Operación */
-		System.out.println("En la Frase hay " + comunes.Metodos.countCharacter(CADENA, CHARACTER) + " carácteres de tipo \""
+		System.out.println("En la Frase hay " + comunes.Common.countCharacter(CADENA, CHARACTER) + " carácteres de tipo \""
 				+ CHARACTER + "\".");
 		
 	}

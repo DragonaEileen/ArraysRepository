@@ -12,8 +12,8 @@ public class Principal {
 		String cadena2;
 		
 		/* Algoritmo */
-		cadena1 = comunes.Metodos.randomString();
-		cadena2 = comunes.Metodos.randomString();
+		cadena1 = comunes.Common.randomString();
+		cadena2 = comunes.Common.randomString();
 		
 		//Comparacion
 		if(cadena1.length() > cadena2.length()) {

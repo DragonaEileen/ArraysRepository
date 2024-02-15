@@ -1,13 +1,39 @@
 package comunes;
 
+import java.util.Scanner;
+
 /**
  * Clase que contiene métodos estáticos para usar regularmente 
- * en los ejercicios de cadenas.
+ * en los ejercicios de cadenas. Tambien contiene atributos comunes para 
+ * no repetir codigo durante los ejercicios.
  * 
  * @author Eileen
  */
-public class Metodos {
-
+public class Common {
+	
+	/* Atributos */
+	/**
+	 * Cadena de Uso 1
+	 */
+	public static String str1 = "";
+	
+	/**
+	 * Cadena de Uso 2
+	 */
+	public static String str2 = "";
+	
+	/**
+	 * Cadena de Uso 3
+	 */
+	public static String str3 = "";
+	
+	/**
+	 * Scanner
+	 */
+	public static Scanner scanner = new Scanner(System.in);
+	
+	
+	/* Metodos Estáticos*/
 	/**
 	 * Método para generar un caracter random de la A a la Z
 	 */
