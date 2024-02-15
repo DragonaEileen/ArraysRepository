@@ -217,4 +217,52 @@ public class Common {
 		
 	}//Fin invert()
 	
+	/**
+	 * Método que cuenta cuantas subcadenas hay en una frase
+	 * 
+	 * @param cadena Cadena a comprobar cuantas veces existe la palabra
+	 * @param subCadena Subcadena a comprobar cuantas veces esta en cadena
+	 * @return numSubCadenas Cantidad de veces que existe la subcadena en cadena
+	 */
+	public static int countSubString(String cadena, String subCadena) {
+		
+		/* Declaraciones */
+			/* PCC: Valor de veces que subcadena aparece en cadena */
+		int numSubCadenas = 0;
+		
+			/* Cadena de prueba */
+		String check = "";
+		
+		/* Comprobamos si la palabra existe en la cadena */
+		if(cadena.contains(subCadena)) {
+			
+			//Bucle For para recorrer el array
+			for(int i = 0; i < cadena.length(); i++) {
+				
+				//Reset Check
+				check = "";
+				
+				//Comprobamos que la primera letra coincide
+				if(cadena.charAt(i) == subCadena.charAt(0)) {
+					
+					//Ahora comprobamos si lo que sigue es igual
+					for(int j = 0; j < subCadena.length(); j++) {
+						
+						check = check + cadena.charAt(i+j);
+						
+					}//Fin FOR --> Check Subsequent letters
+					
+					if(check.equals(subCadena)) { numSubCadenas++; }
+					
+				}//Fin IF --> Check First Letter
+				
+			}//Fin FOR --> Recorrer Cadena
+			
+		}//Fin IF --> Check Exist
+		
+		//Return
+		return numSubCadenas;
+		
+	}//Fin countSubString()
+	
 }
