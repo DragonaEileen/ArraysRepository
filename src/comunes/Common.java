@@ -265,4 +265,59 @@ public class Common {
 		
 	}//Fin countSubString()
 	
+	/**
+	 * Metodo que dada una cadena y un valor entero 
+	 * divide la palabra en subcadenas de longitud 
+	 * igual a ese valor 
+	 * 
+	 * @param cadena Cadena que se va a dividir
+	 * @param valueN Valor de longitud de las subcadenas
+	 * @return strArray Conjunto de subCadenas
+	 */
+	public static String[] divideStringByN(String cadena, int valueN) {
+		
+		/* Declaraciones */
+			/* PCC: Declaramos la array a devolver */
+		String[] strArray;
+			
+			/* Cantidad de subcadenas que habrá */
+		double numSubStrings;
+		
+		/* Operaciones */
+		// Calculamos la cantidad de SubStrings
+		numSubStrings = (double) cadena.length() / valueN;
+		
+			// Si tiene decimales, añadimos una  subcadena más
+		if(numSubStrings - (int) numSubStrings > 0) { numSubStrings = (int) (numSubStrings + 1); };
+		
+		//Construimos la array
+		strArray = new String[(int) numSubStrings];
+		
+		// Ahora empezamos a dividir mediante un bucle FOR
+		for(int i = 0; i < numSubStrings; i++) {
+			
+			//Variable Local del fin del Index
+			int endIndex = (i*valueN + valueN);
+			
+			//Variable Local del principio del Index
+			int beginIndex = (i*valueN);
+			
+			//Comprobamos si se sale
+			if (endIndex < cadena.length()) {
+				
+				strArray[i] = cadena.substring(beginIndex, endIndex);
+
+			}else {
+				
+				strArray[i] = cadena.substring(beginIndex);
+				
+			}//Fin IF --> Comprobación Si Se Sale
+			
+		}//Fin FOR --> Divide
+		
+		/* Return */
+		return strArray;
+		
+	}//Fin divideStringByN
+	
 }
