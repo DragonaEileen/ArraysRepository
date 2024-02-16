@@ -320,4 +320,48 @@ public class Common {
 		
 	}//Fin divideStringByN
 	
+	/**
+	 * Método que convierte una cadena dada a nomenclatura camel
+	 * 
+	 * @param cadena Cadena a convertir a nomenclatura camel
+	 * @return 
+	 */
+	public static String toCamelCase(String cadena) {
+		
+		/* Declaraciones */
+			/* Array de Strings para usar el metodo Split */
+		String[] strArray;
+		
+		/* Operaciones */
+		//Dividimos la frase 
+		strArray = cadena.split(" ");
+		
+		//Usamos un bucle FOR para recorrer la array de substrings
+		for(int i = 0; i < strArray.length; i++) {
+			
+			//Llevamos todas las subcadenas a LowerCase
+			strArray[i] = strArray[i].toLowerCase();
+			
+			//Transformamos la primera letra, menos la primera, en mayúsculas 
+			if(i > 0) { 
+				
+				//Variable Local que apunta a la primera letra de cada palabra
+				char charAt = strArray[i].charAt(0);
+				
+				//Reemplazamos la palabra por una palabra con la primera 
+				//	letra reemplazada por la misma letra pero en mayusculas
+				strArray[i] = strArray[i].replace(charAt, Character.toUpperCase(charAt));
+				
+			}//Fin IF --> Segunda palabra
+			
+		}//Fin FOR --> Recorre strArray
+		
+		//Juntamos las subStrings en la cadena dada
+		cadena = String.join("", strArray);
+		
+		/* Return */
+		return cadena;
+		
+	}//Fin toCamelCase
+	
 }
