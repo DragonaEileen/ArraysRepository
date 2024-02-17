@@ -8,7 +8,14 @@ public class PrincipalEj17 {
 			/* Cadena de Uso */
 		String cadena = "if (a==3) /* igual a tres */ a++; /* incrementamos a */";
 		
+			/* Cadena sin Comentarios */
+		String noComments;
+		
 		/* Operaciones */
+		noComments = MetodosEj17.deleteComments(cadena);
+		
+		/* Resultado */
+		System.out.println(noComments);
 		
 		
 	}
