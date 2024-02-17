@@ -48,10 +48,11 @@ public class MetodosEj17 {
 					if(CADENA.charAt(flagJ) == '/' && CADENA.charAt(flagJ-1) == '*') {
 						
 						//Cambiamos el begin Index
-						beginIndex = flagJ + 1;
+						beginIndex = flagJ + 1;		//+1 por que beginIndex está incluido y flagJ es la /
 						
 					}//Fin If --> Comprobación
 					
+					//Actualizamos
 					flagJ = flagJ + 1;
 						
 				}//Fin While --> Busqueda de Cierre
