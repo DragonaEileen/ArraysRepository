@@ -1,5 +1,7 @@
 package ejercicio13;
 
+import java.util.Arrays;
+
 /**
  * Clase que contiene los atributos y métodos necesarios para
  * comprobar que dos palabras sean anagramas
@@ -43,33 +45,20 @@ public class Anagrama {
 		/* Declarations */
 			/* PCC: Let's declare a boolean to return */
 		boolean result = true;
+			
+			/* Character array of the first string */
+		char[] arrayFirstStr = strFirst.toCharArray();
 		
-			/* Counter used in the While Loop */
-		int counter = 0;
-		
+			/* Character array of the second string */
+		char[] arraySecondStr = strSecond.toCharArray();
+
 		/* Algorythm */
-		//First lets compare the length
-		if(strFirst.length() == strSecond.length()) {
-			
-			result = false;
-			
-		}//Fin IF --> Checking Length
+		//Lets sort them strings
+		Arrays.sort(arrayFirstStr);
+		Arrays.sort(arraySecondStr);
 		
-		//Then, lets go through the first string, 
-		//looking if the other string contains each character
-		while(result) {
-			
-			//Checking
-			if(!strSecond.contains(String.valueOf(strFirst.charAt(counter)))) {
-				
-				result = false;
-				
-			}//Fin IF --> Check If letter is in there
-			
-			//Iteration Controller
-			counter = counter + 1;
-			
-		}//Fin WHILE --> Across the String
+		//Now lets compare them
+		if(!Arrays.equals(arrayFirstStr, arraySecondStr)) {result = false;}
 		
 		/* Return */
 		return result;
