@@ -24,8 +24,7 @@ public class PrincipalEj12 {
 		
 		/* Print */
 		System.out.println("The longest word is: " + longest);
-		
-		
+			
 	}
 
 }
