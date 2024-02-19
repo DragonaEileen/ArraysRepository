@@ -1,7 +1,5 @@
 package ejercicio19;
 
-import comunes.Common;
-
 public class PrincipalEj19 {
 
 	public static void main(String[] args) {
