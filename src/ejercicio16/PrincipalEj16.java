@@ -1,8 +1,8 @@
-package ejercicio15;
+package ejercicio16;
 
 import java.util.Scanner;
 
-public class PrincipalEj15 {
+public class PrincipalEj16 {
 
 	public static void main(String[] args) {
 
@@ -12,6 +12,9 @@ public class PrincipalEj15 {
 		
 			/* Cadena donde se guarda la respuesta del jugador 2 */
 		String trying = "";
+		
+			/* Pista de caracteres acertados */
+		String showClue;
 		
 		/* Apertura de Scanner */
 		Scanner scanner = new Scanner(System.in);
@@ -33,7 +36,11 @@ public class PrincipalEj15 {
 			System.out.println("Jugador 2, introduce tu intento:");
 			trying = scanner.next();
 			
-		}while(anagram.winWin(trying));
+			//Acudimos a la Pista
+			showClue = anagram.successes(trying);
+			System.out.println("Aciertos: " + showClue);
+			
+		}while(!anagram.winWin(trying));
 		
 		/* Win Win */
 		System.out.println("Has ganado");
