@@ -18,7 +18,7 @@ public class Anagrama {
 	/**
 	 * Cadena Anagramizada
 	 */
-	String anagrama = "";
+	String anagramaString = "";
 	
 	/* Constructors */
 	/**
@@ -94,7 +94,7 @@ public class Anagrama {
 		}//Fin FOR --> Recorrer
 		
 		//Convertirmos la Array de caracteres a Cadena
-		anagrama = charArrayAnagram.toString();
+		anagramaString = String.valueOf(charArrayAnagram);
 		
 	}//Fin anagramInator
 	
@@ -110,7 +110,7 @@ public class Anagrama {
 			/* PCC: Booleano a devolver */
 		boolean res;
 		
-		if(cadena == CADENA) {
+		if(cadena.equals(CADENA)) {
 			
 			res = true;
 			

@@ -29,11 +29,11 @@ public class PrincipalEj15 {
 		/* Jugador 2 */
 		do {
 			
-			System.out.println("Anagrama: " + anagram.anagrama);
+			System.out.println("Anagrama: " + anagram.anagramaString);
 			System.out.println("Jugador 2, introduce tu intento:");
 			trying = scanner.next();
 			
-		}while(anagram.winWin(trying));
+		}while(!anagram.winWin(trying));
 		
 		/* Win Win */
 		System.out.println("Has ganado");
