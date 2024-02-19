@@ -44,7 +44,8 @@ public class Anagrama {
 			/* PCC: Let's declare a boolean to return */
 		boolean result = true;
 		
-			/* Array of characters */
+			/* Counter used in the While Loop */
+		int counter = 0;
 		
 		/* Algorythm */
 		//First lets compare the length
@@ -56,7 +57,19 @@ public class Anagrama {
 		
 		//Then, lets go through the first string, 
 		//looking if the other string contains each character
-		for(int i = 0; i < strFirst; i++)
+		while(result) {
+			
+			//Checking
+			if(!strSecond.contains(String.valueOf(strFirst.charAt(counter)))) {
+				
+				result = false;
+				
+			}//Fin IF --> Check If letter is in there
+			
+			//Iteration Controller
+			counter = counter + 1;
+			
+		}//Fin WHILE --> Across the String
 		
 		/* Return */
 		return result;
