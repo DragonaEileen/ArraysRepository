@@ -6,10 +6,10 @@ public class PrincipalEj14 {
 
 		/* Declaraciones */
 			/* Cadena de Uso 1 */
-		String cadena1 = "En un país multicolor, vivía una abeja bajo el sol";
+		final String CADENA = "En un país multicolor, vivía una abeja bajo el sol";
 		
 			/* Objeto CuentaLetras */
-		CuentaLetras prueba1 = new CuentaLetras(cadena1);
+		CuentaLetras prueba1 = new CuentaLetras(CADENA);
 		
 		/* Operaciones */
 		//Llamamos a la función
