@@ -15,7 +15,7 @@ public class MetodosEj10 {
 	 * @param c Carácter a codificar
 	 * @return codedC Carácter codificado
 	 */
-	static char codifica(char conjunto1[],char conjunto2[], char c) {
+	public static char codifica(char conjunto1[],char conjunto2[], char c) {
 		
 		/* Declaraciones */
 			/* PCC: carácter a devolver */
