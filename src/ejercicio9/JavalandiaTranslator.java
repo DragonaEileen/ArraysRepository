@@ -77,11 +77,13 @@ public class JavalandiaTranslator {
 			
 			//Reemplazamos la muletilla del principio
 			strTranslated = CADENA.replace(STANDARD_DIALECT, "");
+			break;
 			
 		case SPECIAL:
 			
 			//Reemplazamos la muletilla del final
 			strTranslated = CADENA.replace(UNIQUE_DIALECT, ".");
+			break;
 			
 		case HYBRID:
 			
@@ -91,10 +93,14 @@ public class JavalandiaTranslator {
 			//Luego la del final
 			strTranslated = strTranslated.replace(UNIQUE_DIALECT, ".");
 			
+			break;
+			
 		default:
 			
 			//No reemplazamos nada
 			strTranslated = CADENA;
+			
+			break;
 			
 		}//Fin SWITCH --> Dialect Trimming
 		

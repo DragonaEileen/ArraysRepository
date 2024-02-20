@@ -21,9 +21,17 @@ public class PrincipalEj9 {
 		String test = "";
 		
 		/* Operaciones */
+		//Operacion estándar
 		test = translator.translate(STANDARD_EXAMPLE.toLowerCase());
-		System.out.println(test);
+		System.out.println(test.trim());
 		
+		//Operación especial
+		test = translator.translate(UNIQUE_EXAMPLE);
+		System.out.println(test.trim());
+		
+		//Operación Hibrida
+		test = translator.translate(HYBRID_EXAMPLE);
+		System.out.println(test.trim());
 		
 	}
 
