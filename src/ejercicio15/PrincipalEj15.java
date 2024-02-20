@@ -33,7 +33,7 @@ public class PrincipalEj15 {
 			System.out.println("Jugador 2, introduce tu intento:");
 			trying = scanner.next();
 			
-		}while(anagram.winWin(trying));
+		}while(!anagram.winWin(trying));
 		
 		/* Win Win */
 		System.out.println("Has ganado");
