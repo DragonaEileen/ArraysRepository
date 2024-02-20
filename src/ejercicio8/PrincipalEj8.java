@@ -1,7 +1,6 @@
 package ejercicio8;
 
 import comunes.Common;
-import java.util.Arrays;
 
 public class PrincipalEj8 {
 
