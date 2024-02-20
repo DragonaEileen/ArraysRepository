@@ -1,5 +1,7 @@
 package ejercicio14;
 
+import java.util.Arrays;
+
 /**
  * Clase que contiene las funciones y atributos necesarias para el ejercicio 14
  * 
@@ -41,6 +43,7 @@ public class CuentaLetras {
 			 * cuyo tamaño será el del máximo de digitos que pueda tener
 			 * la CADENA */
 		String[] strArray = new String[CADENA.length()];
+		Arrays.fill(strArray, "");
 		
 			/* Contador de strArray */
 		int counter = 0;
@@ -54,9 +57,16 @@ public class CuentaLetras {
 			if(contained.contains(String.valueOf(CADENA.charAt(i)))) {
 				
 				//Checking where it is contained
-				for(String str: strArray) {
+				for(int j = 0; j < strArray.length; j++) {
 					
-					str = str + CADENA.charAt(i);
+					//Checkeamos solo las que no esten vacias
+					if (!strArray[j].isEmpty() && (strArray[j].charAt(0) == CADENA.charAt(i))) {
+							
+							strArray[j] = strArray[j] + CADENA.charAt(i);
+						
+						//Fin last check
+						
+					}//Fin Checking
 					
 				}//Fin FOR-EACH --> Where is it contained
 				
