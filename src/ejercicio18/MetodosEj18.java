@@ -13,7 +13,7 @@ public class MetodosEj18 {
 	 * 
 	 * @param TITLE Cadena que contiene el título
 	 * @param CONTENT Cadena que contiene el contenido
-	 * @return pageHTML Cadena que contiene todo el "código" HTML
+	 * @return pageHTML Cadena que contiene all el "código" HTML
 	 */
 	static String toHTML(final String TITLE, final String CONTENT) {
 		
@@ -23,6 +23,18 @@ public class MetodosEj18 {
 			/* Declaramos  */
 		
 		/* Operaciones */
+		
+		pageHTML = "<!DOCTYPE html>\r\n"
+				+ "<html lang=\"es-ES\">\r\n"
+				+ "<head>\r\n"
+				+ "    <meta charset=\"utf-8\">\r\n"
+				+ "    <title>"+ TITLE +"</title>\r\n"
+				+ "</head>\r\n"
+				+ "<body>\r\n"
+				+ "    <h1>"+ TITLE +"</h1>\r\n"
+				+ "    <p>" + CONTENT + "</p>\r\n"
+				+ "</body>\r\n"
+				+ "</html>";
 		
 		/* Return */
 		return pageHTML;
